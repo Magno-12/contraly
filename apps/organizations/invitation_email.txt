@@ -1,0 +1,14 @@
+INVITACIÓN A {{ organization_name }}
+
+Has sido invitado a unirte a {{ organization_name }} como {{ role }} en la plataforma Contraly.
+
+Para aceptar esta invitación, visita el siguiente enlace:
+{{ invitation_url }}
+
+Esta invitación expirará el {{ expires_at|date:"d/m/Y H:i" }}.
+
+Si no esperabas esta invitación, puedes ignorar este correo.
+
+---
+Este es un correo automático, por favor no respondas a este mensaje.
+© {% now "Y" %} Contraly - Sistema de Gestión de Cuentas de Cobro

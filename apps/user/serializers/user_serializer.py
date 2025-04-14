@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
-from apps.users.models import User, UserProfile
+from apps.user.models.user import User, UserProfile
 
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
@@ -141,7 +141,7 @@ class UserCreateSerializer(serializers.ModelSerializer):
             UserProfile.objects.create(user=user)
         
         # Assign roles if provided
-        from apps.users.models import Role, UserRole
+        from apps.user.models import Role, UserRole
         for role_id in roles:
             try:
                 role = Role.objects.get(id=role_id)

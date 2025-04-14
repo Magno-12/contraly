@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Invitación a {{ organization_name }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 150px;
+            margin-bottom: 10px;
+        }
+        h1 {
+            color: #1976D2;
+            margin-top: 0;
+        }
+        .button {
+            display: inline-block;
+            background-color: #1976D2;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://via.placeholder.com/150x50" alt="Contraly Logo" class="logo">
+            <h1>Invitación a {{ organization_name }}</h1>
+        </div>
+        
+        <p>Has sido invitado a unirte a <strong>{{ organization_name }}</strong> como <strong>{{ role }}</strong> en la plataforma Contraly.</p>
+        
+        <p>Para aceptar esta invitación, haz clic en el siguiente botón:</p>
+        
+        <div style="text-align: center;">
+            <a href="{{ invitation_url }}" class="button">Aceptar invitación</a>
+        </div>
+        
+        <p>O copia y pega el siguiente enlace en tu navegador:</p>
+        <p style="word-break: break-all;">{{ invitation_url }}</p>
+        
+        <p>Esta invitación expirará el {{ expires_at|date:"d/m/Y H:i" }}.</p>
+        
+        <p>Si no esperabas esta invitación, puedes ignorar este correo.</p>
+        
+        <div class="footer">
+            <p>Este es un correo automático, por favor no respondas a este mensaje.</p>
+            <p>&copy; {% now "Y" %} Contraly - Sistema de Gestión de Cuentas de Cobro</p>
+        </div>
+    </div>
+</body>
+</html>
