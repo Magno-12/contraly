@@ -45,7 +45,7 @@ class UserActivity(BaseModel):
     )
     
     user = models.ForeignKey(
-        'users.User',
+        'user.User',
         on_delete=models.CASCADE,
         related_name='activities'
     )
@@ -75,7 +75,7 @@ class UserSession(BaseModel):
     """Track user sessions"""
     
     user = models.ForeignKey(
-        'users.User',
+        'user.User',
         on_delete=models.CASCADE,
         related_name='sessions'
     )

@@ -29,7 +29,7 @@ class UserRole(BaseModel):
     """Many-to-many relationship between users and roles"""
     
     user = models.ForeignKey(
-        'users.User', 
+        'user.User', 
         on_delete=models.CASCADE,
         related_name='user_roles'
     )
