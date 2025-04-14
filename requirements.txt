@@ -1,0 +1,57 @@
+# Django y componentes principales
+Django==4.2.9
+djangorestframework==3.14.0
+django-cors-headers==4.3.1
+django-tenants==3.5.0
+django-filter==23.5
+django-environ==0.11.2
+djangorestframework-simplejwt==5.3.1
+
+# Gestión de archivos y almacenamiento
+django-storages==1.14.2
+boto3==1.34.14
+Pillow==10.1.0
+
+# Base de datos
+psycopg2-binary==2.9.9
+dj-database-url==2.1.0
+
+# Herramientas de desarrollo
+black==23.12.1
+isort==5.13.2
+flake8==6.1.0
+pytest==7.4.3
+pytest-django==4.7.0
+factory-boy==3.3.0
+coverage==7.3.3
+
+# Documentación API
+drf-yasg==1.21.7
+
+# Utilidades
+python-dateutil==2.8.2
+pytz==2023.3.post1
+Markdown==3.5.1
+django-import-export==3.3.1
+
+# Gestión de tareas asíncronas
+celery==5.3.6
+redis==5.0.1
+django-celery-results==2.5.1
+django-celery-beat==2.5.0
+
+# Despliegue
+gunicorn==21.2.0
+whitenoise==6.6.0
+
+# Seguridad
+django-defender==0.9.7
+django-axes==6.1.1
+python-dotenv==1.0.1
+
+# Monitoreo y logging
+sentry-sdk==1.39.1
+django-debug-toolbar==4.2.0
+
+# Internacionalización
+django-rosetta==0.9.9
