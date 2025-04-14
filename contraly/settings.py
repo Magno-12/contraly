@@ -54,10 +54,13 @@ THIRD_PARTY_APPS = [
 
 CUSTOM_APPS = [
     'apps.default',
-    'apps.core'
+    'apps.core',
+    'apps.user'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
+
+AUTH_USER_MODEL = 'user.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
