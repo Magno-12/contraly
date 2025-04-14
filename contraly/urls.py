@@ -25,9 +25,9 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Lottery API",
+        title="Contraly API",
         default_version='v1',
-        description="API contraly",
+        description="API para los servicios de contraly",
         terms_of_service="https://www.google.com/policies/terms/",
         contact=openapi.Contact(email="contact@lottery.local"),
         license=openapi.License(name="BSD License"),
