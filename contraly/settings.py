@@ -33,8 +33,8 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+# Tus definiciones actuales
 DJANGO_APPS = [
-    'django.contrib.contenttypes',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,8 +42,6 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-
-AUTH_USER_MODEL = 'users.User'
 
 THIRD_PARTY_APPS = [
     'django_tenants',
@@ -59,6 +57,32 @@ CUSTOM_APPS = [
     'apps.core',
     'apps.user',
     'apps.authentication',
+    'apps.organizations',
+]
+
+# Requeridas por django-tenants
+SHARED_APPS = [
+    'django_tenants',  # Debe estar primero
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
+    'corsheaders',
+    'drf_yasg',
+    'apps.core',
+    'apps.user',
+    'apps.authentication',
+    'apps.organizations',
+]
+
+TENANT_APPS = [
+    'django.contrib.contenttypes',
+    'apps.default',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
@@ -106,9 +130,9 @@ WSGI_APPLICATION = 'contraly.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django_tenants.postgresql_backend',
-        'NAME': os.getenv('DB_NAME', 'contraly'),
+        'NAME': os.getenv('DB_NAME', 'contraly_db'),
         'USER': os.getenv('DB_USER', 'postgres'),
-        'PASSWORD': os.getenv('DB_PASSWORD', 'postgres'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'KMr2jLA8il1Srh'),
         'HOST': os.getenv('DB_HOST', 'localhost'),
         'PORT': os.getenv('DB_PORT', '5432'),
     }
@@ -247,8 +271,8 @@ SWAGGER_SETTINGS = {
 
 # JWT Configuration
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=int(os.getenv('JWT_ACCESS_TOKEN_LIFETIME'))),
-    'REFRESH_TOKEN_LIFETIME': timedelta(minutes=int(os.getenv('JWT_REFRESH_TOKEN_LIFETIME'))),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=int(os.getenv('JWT_ACCESS_TOKEN_LIFETIME', '60'))),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=int(os.getenv('JWT_REFRESH_TOKEN_LIFETIME', '7'))),
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
     'UPDATE_LAST_LOGIN': True,

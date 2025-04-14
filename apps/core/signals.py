@@ -1,12 +1,12 @@
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
-from django.contrib.auth import get_user_model
 from django.utils import timezone
 from django.conf import settings
 
 from apps.core.models import AuditLog
+from apps.user.models.user import User
 
-User = get_user_model()
+User= User
 
 def create_audit_log(sender, instance, user=None, action=None, **kwargs):
     """

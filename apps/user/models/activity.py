@@ -1,12 +1,11 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from apps.core.models import BaseModel
+from apps.default.models.base_model import BaseModel
 
 
-class LoginAttempt(models.Model):
+class LoginAttempt(BaseModel):
     """Track login attempts for security purposes"""
-    
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+
     email = models.EmailField()
     ip_address = models.GenericIPAddressField()
     user_agent = models.TextField(blank=True, null=True)

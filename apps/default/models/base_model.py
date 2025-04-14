@@ -8,13 +8,13 @@ class BaseModel(models.Model):
     is_active = models.BooleanField(default=True)
     is_deleted = models.BooleanField(default=False)
     created_by = models.ForeignKey(
-        'users.User',
+        'user.User',
         on_delete=models.SET_NULL,
         null=True,
         related_name='%(class)s_created'
     )
     updated_by = models.ForeignKey(
-        'users.User',
+        'user.User',
         on_delete=models.SET_NULL,
         null=True,
         related_name='%(class)s_updated'

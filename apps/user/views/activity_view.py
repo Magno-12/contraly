@@ -6,11 +6,11 @@ from django_filters.rest_framework import DjangoFilterBackend
 from django.db.models import Count
 from django.utils import timezone
 
-from apps.users.models import LoginAttempt, UserActivity, UserSession
-from apps.users.serializers import (
+from apps.user.models import LoginAttempt, UserActivity, UserSession
+from apps.user.serializers.activity_serializer import (
     LoginAttemptSerializer, UserActivitySerializer, UserSessionSerializer
 )
-from apps.core.permissions import IsAdministrator
+from apps.core.permission import IsAdministrator
 from apps.core.utils import get_client_ip
 
 
@@ -392,7 +392,7 @@ class UserSessionViewSet(GenericViewSet):
                 )
             
             # Get target user's sessions
-            from apps.users.models import User
+            from apps.user.models import User
             try:
                 target_user = User.objects.get(id=user_id)
                 sessions = UserSession.objects.filter(

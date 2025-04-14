@@ -4,12 +4,12 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 from django_filters.rest_framework import DjangoFilterBackend
 
-from apps.users.models import Role, Permission, RolePermission, UserRole
-from apps.users.serializers import (
+from apps.user.models import Role, Permission, RolePermission, UserRole
+from apps.user.serializers.role_serializer import (
     PermissionSerializer, RoleSerializer, RoleDetailSerializer,
     RoleCreateUpdateSerializer, UserRoleSerializer
 )
-from apps.core.permissions import IsAdministrator
+from apps.core.permission import IsAdministrator
 from apps.core.utils import create_audit_log, get_client_ip
 
 

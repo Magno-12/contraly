@@ -6,12 +6,12 @@ from django_filters.rest_framework import DjangoFilterBackend
 from django.db.models import Q
 from django.utils import timezone
 
-from apps.users.models import User, UserProfile, UserRole, UserActivity
-from apps.users.serializers import (
+from apps.user.models import User, UserProfile, UserRole, UserActivity
+from apps.user.serializers.user_serializer import (
     UserListSerializer, UserDetailSerializer, UserCreateSerializer,
     PasswordChangeSerializer, UserProfileSerializer
 )
-from apps.core.permissions import IsAdministrator
+from apps.core.permission import IsAdministrator
 from apps.core.utils import create_audit_log, get_client_ip
 
 
@@ -363,7 +363,7 @@ class UserViewSet(GenericViewSet):
             )
         
         # Get roles and users
-        from apps.users.models import Role
+        from apps.user.models import Role
         
         result = {}
         queryset = self.get_queryset()
