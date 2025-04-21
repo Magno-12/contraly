@@ -1,4 +1,5 @@
-from apps.core.serializers import ConfigurationSettingSerializer, AuditLogSerializer, SystemLogSerializer
+from apps.core.serializers.configuration_serializer import ConfigurationSettingSerializer
+from apps.core.serializers.audit_serializer import AuditLogSerializer, SystemLogSerializer
 
 
 __all__ = [

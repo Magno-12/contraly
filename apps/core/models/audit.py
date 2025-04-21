@@ -27,7 +27,7 @@ class AuditLog(BaseModel):
     ip_address = models.GenericIPAddressField(null=True, blank=True)
     user_agent = models.TextField(null=True, blank=True)
     tenant = models.ForeignKey(
-        'tenants.Tenant',
+        'organizations.Organization',
         on_delete=models.CASCADE,
         null=True,
         blank=True
@@ -60,7 +60,7 @@ class SystemLog(BaseModel):
     message = models.TextField()
     stack_trace = models.TextField(null=True, blank=True)
     tenant = models.ForeignKey(
-        'tenants.Tenant',
+        'organizations.Organization',
         on_delete=models.CASCADE,
         null=True,
         blank=True

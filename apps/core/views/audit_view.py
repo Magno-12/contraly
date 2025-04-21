@@ -7,7 +7,7 @@ from django.db.models import Count
 
 from apps.core.models import AuditLog, SystemLog
 from apps.core.serializers import AuditLogSerializer, SystemLogSerializer
-from apps.core.permissions import IsAdministrator
+from apps.core.permission import IsAdministrator
 
 class AuditLogViewSet(GenericViewSet):
     """

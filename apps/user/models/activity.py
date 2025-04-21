@@ -12,7 +12,7 @@ class LoginAttempt(BaseModel):
     successful = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     tenant = models.ForeignKey(
-        'tenants.Tenant',
+        'organizations.Organization',
         on_delete=models.SET_NULL,
         null=True,
         blank=True
@@ -56,7 +56,7 @@ class UserActivity(BaseModel):
     module = models.CharField(max_length=100, default='GENERAL')
     page = models.CharField(max_length=255, null=True, blank=True)
     tenant = models.ForeignKey(
-        'tenants.Tenant',
+        'organizations.Organization',
         on_delete=models.CASCADE,
         null=True,
         blank=True
@@ -90,7 +90,7 @@ class UserSession(BaseModel):
     logout_time = models.DateTimeField(null=True, blank=True)
     last_activity = models.DateTimeField(auto_now=True)
     tenant = models.ForeignKey(
-        'tenants.Tenant',
+        'organizations.Organization',
         on_delete=models.CASCADE,
         null=True,
         blank=True

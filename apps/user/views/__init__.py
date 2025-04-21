@@ -1,6 +1,6 @@
-from .user import UserViewSet
-from .role import PermissionViewSet, RoleViewSet
-from .activity import LoginAttemptViewSet, UserActivityViewSet, UserSessionViewSet
+from apps.user.views.user_view import UserViewSet
+from apps.user.views.role_view import PermissionViewSet, RoleViewSet
+from apps.user.views.activity_view import LoginAttemptViewSet, UserActivityViewSet, UserSessionViewSet
 
 __all__ = [
     'UserViewSet',

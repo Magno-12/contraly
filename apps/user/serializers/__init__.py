@@ -1,12 +1,12 @@
-from .user import (
+from apps.user.serializers.user_serializer import (
     UserListSerializer, UserDetailSerializer, UserCreateSerializer,
     PasswordChangeSerializer, UserProfileSerializer
 )
-from .role import (
+from apps.user.serializers.role_serializer import (
     PermissionSerializer, RoleSerializer, RoleDetailSerializer,
     RoleCreateUpdateSerializer, UserRoleSerializer
 )
-from .activity import (
+from apps.user.serializers.activity_serializer import (
     LoginAttemptSerializer, UserActivitySerializer, UserSessionSerializer
 )
 

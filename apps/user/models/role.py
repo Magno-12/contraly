@@ -10,7 +10,7 @@ class Role(BaseModel):
     description = models.TextField(blank=True, null=True)
     is_system_role = models.BooleanField(default=False)
     tenant = models.ForeignKey(
-        'tenants.Tenant',
+        'organizations.Organization',
         on_delete=models.CASCADE,
         null=True,
         blank=True,

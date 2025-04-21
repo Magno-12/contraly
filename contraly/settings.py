@@ -63,12 +63,6 @@ CUSTOM_APPS = [
 # Requeridas por django-tenants
 SHARED_APPS = [
     'django_tenants',  # Debe estar primero
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
@@ -130,11 +124,14 @@ WSGI_APPLICATION = 'contraly.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django_tenants.postgresql_backend',
-        'NAME': os.getenv('DB_NAME', 'contraly_db'),
-        'USER': os.getenv('DB_USER', 'postgres'),
-        'PASSWORD': os.getenv('DB_PASSWORD', 'KMr2jLA8il1Srh'),
-        'HOST': os.getenv('DB_HOST', 'localhost'),
-        'PORT': os.getenv('DB_PORT', '5432'),
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
+        'OPTIONS': {
+            'client_encoding': 'UTF8',
+        },
     }
 }
 
@@ -143,8 +140,8 @@ DATABASE_ROUTERS = [
 ]
 
 # Configuración de tenant
-TENANT_MODEL = "tenants.Tenant"
-TENANT_DOMAIN_MODEL = "tenants.Domain"
+TENANT_MODEL = "organizations.Organization"
+TENANT_DOMAIN_MODEL = "organizations.Domain"
 TENANT_SUBFOLDER_PREFIX = "t"  # Si decides usar carpetas en lugar de subdominios
 SHOW_PUBLIC_IF_NO_TENANT_FOUND = True
 

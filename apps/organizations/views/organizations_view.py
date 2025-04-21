@@ -10,12 +10,12 @@ from django.template.loader import render_to_string
 from django.conf import settings
 from django.db.models import Q
 
-from apps.organizations.models import (
+from apps.organizations.models.organizations import (
     Organization, Domain, OrganizationMember, 
     OrganizationSettings, OrganizationInvitation
 )
-from apps.organizations.serializers import (
-    OrganizationListSerializer, OrganizationDetailSerializer, 
+from apps.organizations.serializers.organizations_serializer import (
+    OrganizationListSerializer, OrganizationDetailSerializer,
     OrganizationCreateSerializer, DomainSerializer,
     OrganizationMemberSerializer, OrganizationSettingsSerializer,
     OrganizationInvitationSerializer, InvitationAcceptSerializer

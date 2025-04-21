@@ -28,7 +28,7 @@ class OrganizationAdmin(admin.ModelAdmin):
     list_filter = ('organization_type', 'on_trial', 'is_active', 'city', 'state')
     search_fields = ('name', 'subdomain', 'email', 'tax_id')
     readonly_fields = ('schema_name', 'created_at', 'updated_at', 'created_by', 'updated_by')
-    inlines = [DomainInline, OrganizationMemberInline]
+    # inlines = [DomainInline, OrganizationMemberInline]
     
     fieldsets = (
         ('Información básica', {

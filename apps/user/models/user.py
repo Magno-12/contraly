@@ -48,7 +48,7 @@ class User(AbstractUser):
     failed_login_attempts = models.PositiveSmallIntegerField(default=0)
     must_change_password = models.BooleanField(default=False)
     tenant = models.ForeignKey(
-        'tenants.Tenant',
+        'organizations.Organization',
         on_delete=models.CASCADE, 
         null=True,
         blank=True,

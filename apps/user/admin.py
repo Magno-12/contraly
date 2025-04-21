@@ -10,6 +10,7 @@ from apps.user.models import (
 
 class UserProfileInline(admin.StackedInline):
     model = UserProfile
+    fk_name = 'user'
     can_delete = False
     verbose_name_plural = 'profile'
 
