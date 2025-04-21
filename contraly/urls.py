@@ -29,7 +29,6 @@ schema_view = get_schema_view(
         default_version='v1',
         description="API para los servicios de contraly",
         terms_of_service="https://www.google.com/policies/terms/",
-        contact=openapi.Contact(email="contact@lottery.local"),
         license=openapi.License(name="BSD License"),
     ),
     public=True,
@@ -42,7 +41,8 @@ urlpatterns = [
     # API URLs
     path('api/users/', include('apps.user.urls')),
     path('api/core/', include('apps.core.urls')),
-    path('api/core/', include('apps.organizations.urls')),
+    path('api/organization/', include('apps.organizations.urls')),
+    path('api/contract/', include('apps.contracts.urls')),
 
     # Swagger URLs
     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),

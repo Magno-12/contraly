@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@^mym9i=kdwo63etlw2uqmvro4+4k^bgv66*n!u2)ub2r9s591'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -58,6 +58,7 @@ CUSTOM_APPS = [
     'apps.user',
     'apps.authentication',
     'apps.organizations',
+    'apps.contracts',
 ]
 
 # Requeridas por django-tenants
