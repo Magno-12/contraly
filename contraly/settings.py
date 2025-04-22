@@ -59,6 +59,7 @@ CUSTOM_APPS = [
     'apps.authentication',
     'apps.organizations',
     'apps.contracts',
+    'apps.invoices',
 ]
 
 # Requeridas por django-tenants
