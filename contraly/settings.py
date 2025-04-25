@@ -34,15 +34,38 @@ ALLOWED_HOSTS = []
 # Application definition
 
 # Tus definiciones actuales
-# Django-tenants requiere estas configuraciones específicas
-SHARED_APPS = [
-    'django_tenants',  # Debe estar primero
-    'django.contrib.contenttypes',
-    'django.contrib.auth',
+DJANGO_APPS = [
     'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
+
+THIRD_PARTY_APPS = [
+    'django_tenants',
+    'rest_framework',
+    'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
+    'corsheaders',
+    'drf_yasg',
+]
+
+CUSTOM_APPS = [
+    'apps.default',
+    'apps.core',
+    'apps.user',
+    'apps.authentication',
+    'apps.organizations',
+    'apps.contracts',
+    'apps.invoices',
+    'apps.payments'
+]
+
+# Requeridas por django-tenants
+SHARED_APPS = [
+    'django_tenants',  # Debe estar primero
     'rest_framework',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
@@ -56,19 +79,10 @@ SHARED_APPS = [
 
 TENANT_APPS = [
     'django.contrib.contenttypes',
-    'django.contrib.auth',
-    'django.contrib.admin',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
     'apps.default',
-    'apps.contracts',
-    'apps.invoices',
-    'apps.payments',
 ]
 
-# Para django-tenants, INSTALLED_APPS se define así:
-INSTALLED_APPS = SHARED_APPS + [app for app in TENANT_APPS if app not in SHARED_APPS]
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
 
 AUTH_USER_MODEL = 'user.User'
 
