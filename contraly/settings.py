@@ -60,6 +60,7 @@ CUSTOM_APPS = [
     'apps.organizations',
     'apps.contracts',
     'apps.invoices',
+    'apps.payments',
 ]
 
 # Requeridas por django-tenants
@@ -72,8 +73,6 @@ SHARED_APPS = [
     'drf_yasg',
     'apps.core',
     'apps.user',
-    'apps.authentication',
-    'apps.organizations',
 ]
 
 TENANT_APPS = [
